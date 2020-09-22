@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Ficha Técnica</title>
+    <!-- Responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://cdn.detic.ro.gov.br/vendors/bootstrap/v4/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.detic.ro.gov.br/vendors/fontawesome/v5/css/fontawesome-all.min.css">
+
+    <!-- Material Theme CSS -->
+    <!--Material Pro-->
+    <link rel="stylesheet" href="https://cdn.detic.ro.gov.br/themes/material-theme/css/style.css" />
+    <link rel="stylesheet" href="https://cdn.detic.ro.gov.br/themes/material-theme/css/colors/blue.css" />
+    <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+
+
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.0.45/css/materialdesignicons.min.css">
+
+    <!-- Select 2 -->
+    <link href="~/lib/select2/select2.min.css" rel="stylesheet" />
+    <!-- Sweet Alert 2 -->
+    <link rel="stylesheet" href="https://cdn.detic.ro.gov.br/vendors/sweetalert/sweetalert2.min.css" />
+
+    <!-- JQuery (Load First) -->
+    <script src="https://cdn.detic.ro.gov.br/vendors/jquery/jquery-3.3.1.min.js"></script>
+
+    <!--Toasty-->
+    <link href="~/lib/toasty/jquery.toast.css" rel="stylesheet" />
+    <!-- Pickers -->
+    <link href="~/lib/pickers/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <link href="~/lib/pickers/jquery-clockpicker.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/css/app.css" />
+</head>
+<body class="fix-header fix-sidebar card-no-border">
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        </svg>
+    </div>
+    <div id="main-wrapper">
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark bg-dark">
+                <div class="navbar-header">
+                    <a class="navbar-brand" asp-action="Index" asp-controller="Home">
+                        <b>
+                            <i class="fas fa-users light-logo"></i>
+                        </b>
+                        <span>
+
+                            <span class="light-logo">Ficha Técnica</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="navbar-collapse">
+                    <ul class="navbar-nav mr-auto mt-md-0">
+                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i> Menu</a></li>
+                        <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i> Menu</a> </li>
+                    </ul>
+                    <ul class="navbar-nav my-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@*@lista[0]*@ Igor Dutra <i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown-menu dropdown-menu-right scale-up">
+                                <ul class="dropdown-user">
+                                    <li><a asp-action="LogOut" asp-controller="Home"><i class="fa fa-power-off"></i> Sair</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        @*@await Component.InvokeAsync("Menu")*@
+        <partial name="_Menu" />
+        <div class="page-wrapper pt-md-3">
+            <div class="container-fluid mt-3 mt-md-0">
+                <div class="card">
+                    <div class="card-body">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- Bootstrap Core JS -->
+    <script src="https://cdn.detic.ro.gov.br/vendors/bootstrap/v4/js/bootstrap.bundle.min.js"></script>
+
+    <!-- SlimScroll -->
+    <script src="https://cdn.detic.ro.gov.br/vendors/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Wave effects -->
+    <script src="https://cdn.detic.ro.gov.br/themes/material-theme/js/waves.js"></script>
+
+    <!-- SideBarMenu -->
+    <script src="https://cdn.detic.ro.gov.br/themes/material-theme/js/sidebarmenu.js"></script>
+
+    <script src="https://cdn.detic.ro.gov.br/vendors/stickykit/jquery.sticky-kit.min.js"></script>
+    <script src="https://cdn.detic.ro.gov.br/vendors/sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- Material Theme JS -->
+    <script src="https://cdn.detic.ro.gov.br/themes/material-theme/js/custom.min.js"></script>
+
+    <!-- Sweet Alert 2 -->
+    <script src="https://cdn.detic.ro.gov.br/vendors/sweetalert/sweetalert2.all.min.js"></script>
+
+    <!-- Select 2 -->
+    <script src="~/lib/select2/select2.full.min.js"></script>
+    <script src="~/lib/select2/bootstrap-select.min.js"></script>
+    <!-- Pickers -->
+    <script src="~/lib/pickers/bootstrap-datepicker.min.js"></script>
+    <script src="~/lib/pickers/jquery-clockpicker.min.js"></script>
+    <script src="~/lib/pickers/ui.datepicker-pt-BR.js"></script>
+    <!-- Mask -->
+    <script src="~/js/jquery.mask.js"></script>
+    <script src="~/js/Mascaras.js"></script>
+    <!--Toasty-->
+    <script src="~/lib/toasty/jquery.toast.js"></script>
+    <script src="~/lib/toasty/toastr.js"></script>
+    <!-- Another JS -->
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

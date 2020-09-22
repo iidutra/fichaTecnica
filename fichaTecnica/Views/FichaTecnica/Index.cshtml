@@ -1,0 +1,46 @@
+﻿@model IEnumerable<fichaTecnica.Models.FichaTecnica>
+
+@{
+    ViewData["Title"] = "Cabeçalho da Ficha Técnica";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@if (Model.Any())
+{
+
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <p class="mb-2">
+                    <a asp-action="Cadastrar" class="btn btn-primary float-right">Criar Ficha Técnica</a>
+                </p>
+
+                <table class="table table-hover table-click">
+                    <thead>
+                        <tr>
+                            <th>Descrição</th>
+                            <th>Categoria</th>
+                            <th>Rendimento Por Porção</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @* <a asp-action="Detalhes" asp-route-fichaTecnicaId="@item.id">
+                            @item.DescricaoDaFichaTecnica
+                            </a>*@
+                                    @item.DescricaoDaFichaTecnica
+                                </td>
+                                <td>@item.Categoria</td>
+                                <td>@item.RendimentoDaPorcao</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
