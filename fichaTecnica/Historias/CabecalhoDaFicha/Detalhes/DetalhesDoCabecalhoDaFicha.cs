@@ -2,29 +2,30 @@
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
-namespace fichaTecnica.Historias.CabecalhoDaFicha.Editar
+namespace fichaTecnica.Historias.CabecalhoDaFicha.Detalhes
 {
-    public class BuscarCabecalhoDaFichaTecnica
+    public class DetalhesDoCabecalhoDaFicha
     {
-        private readonly DataContext contexto;
+        public readonly DataContext contexto;
 
-        public BuscarCabecalhoDaFichaTecnica(DataContext contexto)
+        public DetalhesDoCabecalhoDaFicha(DataContext contexto)
         {
             this.contexto = contexto;
         }
 
-        public async Task<EditarCabecalhoDaFichaViewModel> Executar(int id)
+        public async Task<DetalhesDoCabecalhoDaFichaViewModel> Executar(int id)
         {
             var fichaTecnica = await contexto.FichaTecnicas.FirstAsync(x => x.Id.Equals(id));
 
-            var fichaTecnicaVm = new EditarCabecalhoDaFichaViewModel()
+            var detalhes = new DetalhesDoCabecalhoDaFichaViewModel()
             {
                 Id = fichaTecnica.Id,
                 DescricaoDaFichaTecnica = fichaTecnica.DescricaoDaFichaTecnica,
                 Categoria = fichaTecnica.Categoria,
                 RendimentoDaPorcao = fichaTecnica.RendimentoDaPorcao
             };
-            return fichaTecnicaVm;
+
+            return detalhes;
         }
     }
 }

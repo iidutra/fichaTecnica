@@ -15,5 +15,12 @@
         public string Categoria { get; private set; }
         public int RendimentoDaPorcao { get; private set; }
 
+        public void AlterarDados(string descricaoDaFichaTecnica, string categoria, int rendimentoDaPorcao)
+        {
+            DescricaoDaFichaTecnica = descricaoDaFichaTecnica;
+            Categoria = categoria;
+            RendimentoDaPorcao = rendimentoDaPorcao;
+        }
+
     }
 }
