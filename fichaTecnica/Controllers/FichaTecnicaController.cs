@@ -1,7 +1,11 @@
 ﻿using fichaTecnica.Data;
 using fichaTecnica.Historias.CabecalhoDaFicha.Cadastrar;
+using fichaTecnica.Historias.CabecalhoDaFicha.Detalhes;
 using fichaTecnica.Historias.CabecalhoDaFicha.Editar;
+using fichaTecnica.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ActionConstraints;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -35,27 +39,55 @@ namespace fichaTecnica.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Editar([FromServices] BuscarCabecalhoDaFichaTecnica buscarCabecalhoDaFichaTecnica, int id)
+        public IActionResult Editar(int id)
         {
-            var fichaTecnicaVm = await buscarCabecalhoDaFichaTecnica.Executar(id);
-            return View(fichaTecnicaVm);
+            var fichaTecnica = context.FichaTecnicas.Find(id);
+            var montarFicha = EditarCabecalho(fichaTecnica);
+            return View(montarFicha);
         }
-        
+
         [HttpPost]
-        public async Task<IActionResult> Editar([FromServices] EditarCabecalhoDaFicha editarCabecalhoDaFicha,
-            EditarCabecalhoDaFichaViewModel editarCabecalhoDaFichaVm)
+        public IActionResult Editar(EditarCabecalhoDaFichaViewModel editarCabecalhoDaFichaVm)
         {
-            var resultado = await editarCabecalhoDaFicha.Executar(editarCabecalhoDaFichaVm);
-            if(resultado.Sucedido)
-            {
-                NotificarSucesso();
-                return RedirectToAction(nameof(Index));
-            }
-            else
-            {
-                NotificarErros(resultado.erros);
-                return View(editarCabecalhoDaFichaVm);
-            }
+            if (!ModelState.IsValid)
+                return View();
+
+            var fichaTecnica = context.FichaTecnicas.FirstOrDefault(x => x.Id == editarCabecalhoDaFichaVm.Id);
+            fichaTecnica.AlterarDados(
+                editarCabecalhoDaFichaVm.DescricaoDaFichaTecnica,
+                editarCabecalhoDaFichaVm.Categoria,
+                editarCabecalhoDaFichaVm.RendimentoDaPorcao
+                );
+            context.Update(fichaTecnica);
+            context.SaveChanges();
+            return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult Detalhes(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var fichaTecnica = context.FichaTecnicas.FirstOrDefault(x => x.Id == id);
+
+            if (fichaTecnica == null)
+            {
+                return NotFound();
+            }
+            return View(fichaTecnica);
+        }
+        public EditarCabecalhoDaFichaViewModel EditarCabecalho(FichaTecnica fichaTecnica)
+        {
+            return new EditarCabecalhoDaFichaViewModel()
+            {
+                Id = fichaTecnica.Id,
+                DescricaoDaFichaTecnica = fichaTecnica.DescricaoDaFichaTecnica,
+                Categoria = fichaTecnica.Categoria,
+                RendimentoDaPorcao = fichaTecnica.RendimentoDaPorcao,
+            };
+        }
+
     }
 }

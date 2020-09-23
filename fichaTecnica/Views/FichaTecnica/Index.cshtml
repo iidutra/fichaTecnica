@@ -29,10 +29,9 @@
                         {
                             <tr>
                                 <td>
-                                    @* <a asp-action="Detalhes" asp-route-fichaTecnicaId="@item.id">
-                            @item.DescricaoDaFichaTecnica
-                            </a>*@
-                                    @item.DescricaoDaFichaTecnica
+                                    <a asp-action="Detalhes" asp-route-id="@item.Id">
+                                        @item.DescricaoDaFichaTecnica
+                                    </a>
                                 </td>
                                 <td>@item.Categoria</td>
                                 <td>@item.RendimentoDaPorcao</td>

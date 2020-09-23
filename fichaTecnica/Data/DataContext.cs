@@ -1,5 +1,7 @@
 ﻿using fichaTecnica.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Threading.Tasks;
 
 namespace fichaTecnica.Data
 {
