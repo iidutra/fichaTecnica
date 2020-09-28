@@ -1,0 +1,64 @@
+﻿@model fichaTecnica.Historias.CadastrarInsumos.CadastrarItemInsumosViewModel
+@{
+    ViewData["Title"] = "Cadastrar Insumos";
+}
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Cadastrar">
+            <div class="form-group">
+                <label asp-for="DescricaoItemInsumo" class="control-label"></label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <em class="mdi mdi-note-text-outline"></em> </span>
+                    </div>
+                    <input asp-for="DescricaoItemInsumo" class="form-control" />
+                </div>
+                <span asp-validation-for="DescricaoItemInsumo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantidade" class="control-label"></label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <em class="mdi mdi-cog-outline"></em> </span>
+                    </div>
+                    <input asp-for="Quantidade" class="form-control" />
+                </div>
+                <span asp-validation-for="Quantidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoDeUnidadeDeMedida" class="control-label"></label>
+                <div class="input-group">
+                    <select id="TipoMedida" name="TipoDeUnidadeDeMedida" asp-items="Html.GetEnumSelectList<fichaTecnica.Data.Enums.TipoDeUnidadeDeMedida>()" class="form-control">
+                        <option value="">Selecione...</option>
+                    </select>
+                </div>
+                <span asp-validation-for="TipoDeUnidadeDeMedida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustoUnitario" class="control-label"></label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <em class="mdi mdi-cog-outline"></em> </span>
+                    </div>
+                    <input asp-for="CustoUnitario" class="form-control" />
+                </div>
+                <span asp-validation-for="CustoUnitario" class="text-danger"></span>
+            </div>       
+            <div class="form-group">
+                <label asp-for="CustoTotal" class="control-label"></label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <em class="mdi mdi-cog-outline"></em> </span>
+                    </div>
+                    <input asp-for="CustoTotal" class="form-control" />
+                </div>
+                <span asp-validation-for="CustoTotal" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-4">
+                <button type="submit" class="btn btn-success"><em class="mdi mdi-check"></em> Salvar</button>
+                <a asp-action="Index" class="btn btn-outline-inverse"><em class="mdi mdi-close"></em> Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
