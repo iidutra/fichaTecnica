@@ -2,6 +2,7 @@ using fichaTecnica.Data;
 using fichaTecnica.Historias.CabecalhoDaFicha.Cadastrar;
 using fichaTecnica.Historias.CabecalhoDaFicha.Detalhes;
 using fichaTecnica.Historias.CabecalhoDaFicha.Editar;
+using fichaTecnica.Historias.CadastrarInsumos;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -34,6 +35,7 @@ namespace fichaTecnica
             services.AddScoped<DataContext, DataContext>();
             services.AddScoped<CriarFichaTecnica>();
             services.AddScoped<DetalhesDoCabecalhoDaFicha>();
+            services.AddScoped<CadastrarItemInsumos>();
            
         }
 
