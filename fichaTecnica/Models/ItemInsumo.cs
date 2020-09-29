@@ -20,5 +20,14 @@ namespace fichaTecnica.Models
         public TipoDeUnidadeDeMedida TipoDeUnidadeDeMedida { get; private set; }
         public double CustoUnitario { get; private set; }
         public double CustoTotal { get; private set; }
+
+        public void AlterarDados(string descricaoItemInsumo, int quantidade, TipoDeUnidadeDeMedida tipoDeUnidadeDeMedida, double custoUnitario, double custoTotal)
+        {
+            DescricaoItemInsumo = descricaoItemInsumo;
+            Quantidade = quantidade;
+            TipoDeUnidadeDeMedida = tipoDeUnidadeDeMedida;
+            CustoUnitario = custoUnitario;
+            CustoTotal = custoTotal;
+        }
     }
 }

@@ -1,16 +1,20 @@
 ﻿using fichaTecnica.Data.Enums;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace fichaTecnica.Historias.CadastrarInsumos
+namespace fichaTecnica.Historias.CadastrarInsumos.Editar
 {
-    public class CadastrarItemInsumosViewModel
+    public class EditarItemInsumoViewModel
     {
         public int Id { get; set; }
 
         [Display(Name = "Descrição")]
         [Required(ErrorMessage = "{0} é obrigatório")]
         public string DescricaoItemInsumo { get; set; }
-        
+
         [Display(Name = "Quantidade")]
         [Required(ErrorMessage = "{0} é obrigatório")]
         public int Quantidade { get; set; }

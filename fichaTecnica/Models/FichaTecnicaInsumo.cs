@@ -7,5 +7,7 @@
         public FichaTecnica FichaTecnica { get; private set; }
         public int ItemInsumoId { get; private set; }
         public ItemInsumo ItemInsumo { get; private set; }
+
+        //TO DO inserir quantidade que utilizarei da quantidade que existe dos meus insumos
     }
 }

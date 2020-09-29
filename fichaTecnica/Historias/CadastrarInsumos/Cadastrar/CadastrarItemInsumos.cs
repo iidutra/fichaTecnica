@@ -2,7 +2,7 @@
 using fichaTecnica.Models;
 using System.Threading.Tasks;
 
-namespace fichaTecnica.Historias.CadastrarInsumos
+namespace fichaTecnica.Historias.CadastrarInsumos.Cadastrar
 {
     public class CadastrarItemInsumos
     {

@@ -1,0 +1,52 @@
+﻿@model fichaTecnica.Historias.CadastrarInsumos.Editar.EditarItemInsumoViewModel
+
+@{
+    ViewData["Title"] = "Editar insumos";
+}
+
+
+<h2>Editar</h2>
+<h4>Ficha técnica</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Editar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label class="control-label" asp-for="DescricaoItemInsumo"></label>
+                <input asp-for="DescricaoItemInsumo" class="form-control" />
+                <span asp-validation-for="DescricaoItemInsumo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label" asp-for="Quantidade"></label>
+                <input asp-for="Quantidade" class="form-control" />
+                <span class="text-danger" asp-validation-for="Quantidade"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoDeUnidadeDeMedida" class="control-label"></label>
+                <div class="input-group">
+                    <select id="TipoMedida" name="TipoDeUnidadeDeMedida" asp-items="Html.GetEnumSelectList<fichaTecnica.Data.Enums.TipoDeUnidadeDeMedida>()" class="form-control">
+                        <option value="">Selecione...</option>
+                    </select>
+                </div>
+                <span asp-validation-for="TipoDeUnidadeDeMedida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label" asp-for="CustoUnitario"></label>
+                <input asp-for="CustoUnitario" class="form-control" />
+                <span class="text-danger" asp-validation-for="CustoUnitario"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label" asp-for="CustoTotal"></label>
+                <input asp-for="CustoTotal" class="form-control" />
+                <span class="text-danger" asp-validation-for="CustoTotal"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-outline-inverse"><em class="mdi mdi-close"></em> Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+

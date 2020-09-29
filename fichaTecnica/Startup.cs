@@ -1,8 +1,7 @@
 using fichaTecnica.Data;
 using fichaTecnica.Historias.CabecalhoDaFicha.Cadastrar;
 using fichaTecnica.Historias.CabecalhoDaFicha.Detalhes;
-using fichaTecnica.Historias.CabecalhoDaFicha.Editar;
-using fichaTecnica.Historias.CadastrarInsumos;
+using fichaTecnica.Historias.CadastrarInsumos.Cadastrar;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
